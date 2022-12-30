@@ -21,8 +21,28 @@ export class RotaService {
   }
 
   save(rota: SaveRotaDto): Promise<any> {
-    console.log('okk')
-    console.log(rota)
     return this.rotaRepository.insert(rota);
+  }
+
+ async  find(coordinates: {
+    origins: { lat: number; lng: number };
+    destinations: { lat: number; lng: number };
+  }) {
+
+    console.log(this.rotaRepository)
+
+    return this.rotaRepository
+      .find({
+        where: { 
+          originCoordinateLat: coordinates.origins.lat,
+          originCoordinateLng: coordinates.origins.lng,
+          destinationCoordinateLat: coordinates.destinations.lat,
+          destinationCoordinateLng: coordinates.origins.lng,
+        },
+      })
+  }
+
+  getAll(): Promise<any> {
+    return this.rotaRepository.find();
   }
 }

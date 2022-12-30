@@ -12,16 +12,16 @@ export class Rota {
   originCoordinateLat: number;
 
   @Column({type: 'double precision'})
-  originCoordinateLnt: number;
+  originCoordinateLng: number;
 
   @Column()
-  destinationAddresses: string;
+  destinationAddress: string;
 
   @Column({type: 'double precision'})
   destinationCoordinateLat: number;
 
   @Column({type: 'double precision'})
-  destinationCoordinateLnt: number;
+  destinationCoordinateLng: number;
 
   @Column()
   distanceText: string;
@@ -36,5 +36,5 @@ export class Rota {
   durationValue: number;
 
   @Column({type: 'double precision'})
-  totalValue: number;
+  valueTotal: number;
 }
